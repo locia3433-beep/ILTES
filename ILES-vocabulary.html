@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雅思核心词填空 · 10篇1000词完整短文</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #eef1f6; color: #222; line-height: 2.0; }
+  header { background: linear-gradient(135deg, #1a73e8, #0b57d0); color: #fff; padding: 16px 12px 12px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.18); }
+  header h1 { margin: 0 0 10px; font-size: 18px; letter-spacing: 1px; }
+  .nav { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; max-width: 1000px; margin: 0 auto; }
+  .nav button { border: none; background: rgba(255,255,255,0.18); color: #fff; padding: 5px 10px; border-radius: 14px; cursor: pointer; font-size: 11.5px; transition: all 0.2s; }
+  .nav button:hover { background: rgba(255,255,255,0.35); }
+  .nav button.active { background: #fff; color: #0b57d0; font-weight: bold; }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 16px 12px 130px; }
+
+  .status-bar { display: flex; gap: 8px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: #fff; border-radius: 12px; padding: 10px 14px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-size: 13px; }
+  .status-bar .left, .status-bar .right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .timer { font-weight: bold; color: #0b57d0; font-family: "Courier New", monospace; font-size: 17px; background: #e8f0fe; padding: 4px 12px; border-radius: 8px; }
+  .status-bar button { border: none; background: #e8f0fe; color: #1a73e8; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 12.5px; font-weight: bold; transition: background 0.2s; }
+  .status-bar button:hover { background: #d2e3fc; }
+  .status-bar button.badge::after { content: attr(data-count); display: inline-block; background: #ea4335; color: #fff; border-radius: 10px; padding: 0 6px; font-size: 11px; margin-left: 5px; min-width: 18px; text-align: center; }
+  .status-bar button.badge[data-count="0"]::after { display: none; }
+  #modeBtn.active { background: #34a853; color: #fff; }
+  #readAllBtn.active { background: #fbbc04; color: #3c2f00; }
+  #shadowBtn.active { background: #9c27b0; color: #fff; }
+
+  .rate-control { display: flex; align-items: center; gap: 8px; background: #fff; border-radius: 12px; padding: 8px 14px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-size: 13px; color: #444; }
+  .rate-control label { font-weight: bold; color: #0b57d0; white-space: nowrap; }
+  .rate-control input[type="range"] { flex: 1; height: 6px; -webkit-appearance: none; appearance: none; background: linear-gradient(to right, #1a73e8, #34a853); border-radius: 3px; outline: none; min-width: 80px; }
+  .rate-control input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: #fff; border: 3px solid #1a73e8; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+  .rate-control .rate-value { font-family: "Courier New", monospace; font-weight: bold; color: #1a73e8; min-width: 44px; text-align: right; }
+  .rate-control .quick-btns { display: flex; gap: 4px; }
+  .rate-control .quick-btns button { border: none; background: #e8f0fe; color: #1a73e8; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; font-weight: bold; cursor: pointer; }
+  .rate-control .quick-btns button:hover { background: #d2e3fc; }
+
+  .story-header { background: #fff; border-radius: 14px; padding: 16px 18px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+  .story-header .tag { display: inline-block; background: #e8f0fe; color: #1a73e8; padding: 4px 12px; border-radius: 12px; font-size: 12px; margin-bottom: 6px; font-weight: bold; }
+  .story-header h2 { margin: 0; font-size: 20px; color: #111; }
+
+  .content { background: #fff; border-radius: 14px; padding: 20px 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); font-size: 16px; line-height: 2.4; }
+  .content p { margin: 0 0 14px; }
+
+  .input-wrap { display: inline-block; white-space: nowrap; vertical-align: baseline; }
+  input.blank { display: inline-block; border: none; border-bottom: 2px solid #1a73e8; background: #f5f9ff; font-size: 15px; font-family: inherit; padding: 1px 4px; text-align: center; outline: none; border-radius: 5px 5px 0 0; transition: all 0.2s; vertical-align: baseline; max-width: 100%; }
+  input.blank::placeholder { color: #b0b8c4; font-size: 12px; }
+  input.blank:focus { background: #e3eeff; box-shadow: 0 2px 6px rgba(26,115,232,0.2); }
+  input.blank.correct { border-bottom-color: #34a853; background: #e6f4ea; color: #137333; font-weight: bold; }
+  input.blank.wrong { border-bottom-color: #ea4335; background: #fce8e6; color: #c5221f; text-decoration: line-through; }
+  input.blank.revealed { border-bottom-color: #fbbc04; background: #fef7e0; color: #b06000; font-weight: bold; }
+  input.blank.speaking-now { background: #fff3b0 !important; box-shadow: 0 0 0 2px #fbbc04; }
+
+  .speaker-btn { display: inline-block; background: none; border: none; cursor: pointer; padding: 0 3px; font-size: 12px; color: #1a73e8; opacity: 0.45; transition: opacity 0.15s, transform 0.1s; vertical-align: baseline; line-height: 1; }
+  .speaker-btn:hover { opacity: 1; transform: scale(1.15); }
+  .speaker-btn:active { transform: scale(0.9); }
+
+  .input-wrap.listening .play-btn { font-size: 17px; padding: 2px 7px; background: linear-gradient(135deg, #e8f0fe, #d2e3fc); border-radius: 8px; opacity: 1; color: #0b57d0; margin-right: 3px; vertical-align: middle; }
+  .input-wrap.listening .play-btn:hover { background: linear-gradient(135deg, #d2e3fc, #aecbfa); transform: scale(1.08); }
+  .input-wrap.listening input.blank { background: #fff; border-bottom-style: dashed; }
+
+  .controls { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(6px); padding: 9px 10px calc(9px + env(safe-area-inset-bottom)); display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; box-shadow: 0 -2px 12px rgba(0,0,0,0.08); z-index: 99; }
+  .controls button { flex: 1 1 0; min-width: 88px; max-width: 170px; padding: 10px 6px; border: none; border-radius: 10px; font-size: 13.5px; font-weight: bold; cursor: pointer; transition: opacity 0.15s, transform 0.1s; }
+  .controls button:active { transform: scale(0.97); }
+  .btn-check { background: #1a73e8; color: #fff; }
+  .btn-show { background: #fbbc04; color: #3c2f00; }
+  .btn-hint { background: #34a853; color: #fff; }
+  .btn-reset { background: #e0e4ea; color: #333; }
+
+  .score { text-align: center; padding: 13px 10px; font-size: 14.5px; font-weight: bold; color: #0b57d0; background: #fff; border-radius: 12px; margin-top: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); min-height: 20px; }
+  .score.good { color: #137333; background: #e6f4ea; }
+  .score.bad { color: #c5221f; background: #fce8e6; }
+
+  /* 跟读浮条 */
+  .shadow-bar { position: fixed; left: 50%; bottom: 80px; transform: translateX(-50%) translateY(200%); background: linear-gradient(135deg, #9c27b0, #6a1b9a); color: #fff; border-radius: 16px; padding: 14px 18px; box-shadow: 0 8px 28px rgba(106, 27, 154, 0.45); z-index: 150; display: flex; flex-direction: column; gap: 8px; max-width: 94vw; width: 520px; transition: transform 0.35s cubic-bezier(.2,.9,.3,1.2); }
+  .shadow-bar.show { transform: translateX(-50%) translateY(0); }
+  .shadow-bar .info { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; }
+  .shadow-bar .info .progress { background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 10px; font-weight: bold; font-family: "Courier New", monospace; }
+  .shadow-bar .info .exit { background: rgba(255,255,255,0.22); border: none; color: #fff; font-size: 12px; padding: 3px 10px; border-radius: 10px; cursor: pointer; font-weight: bold; }
+  .shadow-bar .info .exit:hover { background: rgba(255,255,255,0.4); }
+  .shadow-bar .sentence-en { font-size: 14px; line-height: 1.55; color: #fff; }
+  .shadow-bar .sentence-cn { font-size: 12.5px; line-height: 1.5; color: #f5e6ff; font-style: italic; display: none; }
+  .shadow-bar .sentence-cn.show { display: block; }
+  .shadow-bar .shadow-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+  .shadow-bar .shadow-actions button { flex: 1 1 auto; min-width: 70px; border: none; padding: 9px 6px; border-radius: 10px; cursor: pointer; font-size: 12.5px; font-weight: bold; transition: transform 0.1s, opacity 0.15s; }
+  .shadow-bar .shadow-actions button:active { transform: scale(0.96); }
+  .shadow-bar .btn-prev { background: rgba(255,255,255,0.25); color: #fff; }
+  .shadow-bar .btn-replay { background: #fff; color: #6a1b9a; }
+  .shadow-bar .btn-next { background: #ffd54f; color: #4a148c; }
+  .shadow-bar .btn-cn { background: rgba(255,255,255,0.18); color: #fff; }
+  .shadow-bar .btn-record { background: #ff5252; color: #fff; }
+  .shadow-bar .btn-record.recording { background: #d50000; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); } 50% { box-shadow: 0 0 0 8px rgba(255,255,255,0); } }
+  .shadow-bar .btn-playback { background: #03a9f4; color: #fff; }
+  .shadow-bar .btn-score { background: #4caf50; color: #fff; }
+  .shadow-bar .shadow-result { font-size: 13px; background: rgba(0,0,0,0.22); border-radius: 8px; padding: 8px 12px; line-height: 1.6; display: none; }
+  .shadow-bar .shadow-result.show { display: block; }
+  .shadow-bar .shadow-result .score-big { font-size: 20px; font-weight: bold; }
+
+  /* 弹窗 */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: none; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
+  .modal-overlay.show { display: flex; }
+  .modal { background: #fff; border-radius: 14px; max-width: 520px; width: 100%; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 8px 32px rgba(0,0,0,0.25); overflow: hidden; }
+  .modal-header { padding: 18px 22px 12px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+  .modal-header h3 { margin: 0; font-size: 17px; color: #1a73e8; }
+  .modal-header .close-x { background: none; border: none; font-size: 22px; color: #888; cursor: pointer; line-height: 1; padding: 0 4px; }
+  .modal-body { padding: 12px 22px 18px; overflow-y: auto; flex: 1; }
+  .wrong-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14.5px; }
+  .wrong-item:last-child { border-bottom: none; }
+  .wrong-item .word { font-weight: bold; color: #222; font-family: "Courier New", monospace; }
+  .wrong-item .right-side { display: flex; align-items: center; gap: 6px; }
+  .wrong-item .count { color: #ea4335; font-size: 12px; background: #fce8e6; padding: 2px 8px; border-radius: 10px; }
+  .wrong-item .remove-btn { background: none; border: none; color: #999; font-size: 14px; cursor: pointer; padding: 2px 6px; }
+  .wrong-item .remove-btn:hover { color: #ea4335; }
+  .empty-msg { color: #999; text-align: center; padding: 30px 10px; font-size: 14px; }
+  .modal-footer { padding: 12px 22px 18px; border-top: 1px solid #eee; display: flex; gap: 8px; }
+  .modal-footer button { flex: 1; padding: 11px; border: none; border-radius: 9px; cursor: pointer; font-weight: bold; font-size: 13.5px; }
+  .btn-clear-wrong { background: #fce8e6; color: #c5221f; }
+  .btn-close-modal { background: #e8f0fe; color: #1a73e8; }
+
+  @media (max-width: 600px) {
+    .content { padding: 14px 12px; font-size: 15px; line-height: 2.5; }
+    .story-header h2 { font-size: 18px; }
+    input.blank { font-size: 14px; }
+    .timer { font-size: 15px; padding: 3px 9px; }
+    .status-bar button { padding: 5px 9px; font-size: 12px; }
+    .shadow-bar { bottom: 75px; padding: 12px 14px; width: 96vw; }
+    .rate-control { padding: 6px 10px; font-size: 12px; }
+    .rate-control .quick-btns { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>雅思核心词填空 · 10篇1000词完整短文</h1>
+  <div class="nav" id="nav"></div>
+</header>
+
+<main class="container">
+  <div class="status-bar">
+    <div class="left">
+      <span class="timer" id="timer">00:00</span>
+      <button onclick="toggleTimer()" id="timerBtn">暂停</button>
+      <button onclick="resetTimer()">归零</button>
+    </div>
+    <div class="right">
+      <button id="shadowBtn" onclick="toggleShadowMode()">🎤 跟读模式</button>
+      <button id="readAllBtn" onclick="toggleReadAll()">▶️ 全文朗读</button>
+      <button id="modeBtn" onclick="toggleListeningMode()">🎧 听力模式</button>
+      <button class="badge" id="wrongBtn" onclick="showWrongBook()" data-count="0">📕 错题本</button>
+      <button onclick="shuffleStories()">🔀 打乱顺序</button>
+    </div>
+  </div>
+
+  <div class="rate-control">
+    <label>🔊 语速</label>
+    <input type="range" id="rateSlider" min="0.5" max="1.5" step="0.05" value="0.9">
+    <span class="rate-value" id="rateValue">0.90x</span>
+    <div class="quick-btns">
+      <button onclick="setRate(0.7)">慢</button>
+      <button onclick="setRate(0.9)">正常</button>
+      <button onclick="setRate(1.15)">快</button>
+    </div>
+  </div>
+
+  <div id="storyContainer"></div>
+  <div class="score" id="score">输入完成后，点击下方“检查答案”验证。</div>
+</main>
+
+<div class="controls">
+  <button class="btn-check" onclick="checkAll()">检查答案</button>
+  <button class="btn-hint" onclick="hintAll()">首字母提示</button>
+  <button class="btn-show" onclick="showAll()">显示答案</button>
+  <button class="btn-reset" onclick="resetAll()">重置</button>
+</div>
+
+<!-- 跟读浮条 -->
+<div class="shadow-bar" id="shadowBar">
+  <div class="info">
+    <span class="progress" id="shadowProgress">1 / 1</span>
+    <button class="exit" onclick="stopShadowMode()">❌ 退出跟读</button>
+  </div>
+  <div class="sentence-en" id="shadowSentenceEn"></div>
+  <div class="sentence-cn" id="shadowSentenceCn"></div>
+  <div class="shadow-actions">
+    <button class="btn-prev" onclick="shadowPrev()">⏮️ 上一句</button>
+    <button class="btn-replay" onclick="shadowReplay()">🔁 重读</button>
+    <button class="btn-next" onclick="shadowNext()">⏭️ 下一句</button>
+    <button class="btn-cn" onclick="toggleShadowCn()">🀄 中文</button>
+    <button class="btn-record" id="recordBtn" onclick="toggleRecord()">🎙️ 录音</button>
+    <button class="btn-playback" id="playbackBtn" onclick="playMyRecording()" style="display:none;">▶️ 听我的</button>
+    <button class="btn-score" onclick="startScoring()">🎯 打分</button>
+  </div>
+  <div class="shadow-result" id="shadowResult"></div>
+</div>
+
+<!-- 错题本 -->
+<div class="modal-overlay" id="wrongModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>📕 错题本</h3>
+      <button class="close-x" onclick="closeWrongBook()">×</button>
+    </div>
+    <div class="modal-body" id="wrongList"></div>
+    <div class="modal-footer">
+      <button class="btn-clear-wrong" onclick="clearWrongBook()">清空错题本</button>
+      <button class="btn-close-modal" onclick="closeWrongBook()">关闭</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   1. 数据：10篇短文
+   ========================================================= */
+const stories = [
+{tag:"01 · Accommodation 住宿",title:"Finding a Home in a New City",text:`When I received the [[confirmation|确认]] that I had been accepted into a [[university|大学]] in a large [[metropolitan|大都市的]] area, I felt both [[excited|兴奋的]] and [[anxious|焦虑的]]. The first [[challenge|挑战]] was not [[academic|学术的]] but [[practical|实际的]]: I needed to find suitable [[accommodation|住宿]] before the [[semester|学期]] began. I had never lived away from home, so the whole process of [[renting|租房]] seemed [[overwhelming|令人不知所措的]].
+
+I started my [[search|搜索]] online, browsing [[websites|网站]] that listed [[available|可用的]] [[properties|房产]]. There were [[studios|单间公寓]], [[shared flats|合租公寓]], and [[halls of residence|学生宿舍]]. Each option had its own [[advantages|优势]] and [[disadvantages|劣势]]. A [[studio|单间公寓]] offered [[privacy|隐私]] but was often [[expensive|昂贵的]]. A [[shared flat|合租公寓]] was more [[affordable|负担得起的]] but required [[compromise|妥协]] with [[flatmates|室友]]. [[Halls of residence|学生宿舍]] were [[convenient|方便的]] and [[social|社交的]], but the [[rooms|房间]] were usually small and the [[rules|规定]] strict.
+
+I arranged several [[viewings|看房]] with [[landlords|房东]] and [[letting agents|房屋中介]]. The first [[apartment|公寓]] I visited was [[furnished|带家具的]] and had a [[balcony|阳台]], but the [[neighbourhood|社区]] was [[noisy|吵闹的]] and the [[rent|租金]] was beyond my [[budget|预算]]. The second was [[spacious|宽敞的]] and [[well-lit|采光好的]], but it was far from the [[campus|校园]] and the [[public transport|公共交通]] was [[limited|有限的]]. The third was a small [[studio|单间公寓]] on the ground floor. It was not [[luxurious|豪华的]], but it was [[clean|干净的]], [[secure|安全的]], and within walking [[distance|距离]] of the [[library|图书馆]] and [[supermarket|超市]].
+
+Before signing anything, I read the [[contract|合同]] carefully. The [[landlord|房东]] asked for a [[deposit|押金]] equal to one month's rent, plus the first month's rent in [[advance|提前]]. The [[tenancy agreement|租赁协议]] stated that [[utility bills|水电费]] such as [[electricity|电]], [[water|水]], and [[gas|燃气]] were not included. I also needed to pay for [[internet|网络]] and [[council tax|市政税]], although [[students|学生]] are sometimes [[exempt|豁免的]]. I asked the [[agent|中介]] to clarify a few [[clauses|条款]] about [[maintenance|维修]] and [[notice|通知]] periods. She explained that if anything [[broke|损坏]], I should report it immediately and the [[landlord|房东]] was [[responsible|负责的]] for [[repairs|维修]].
+
+Moving in was both [[tiring|累人的]] and [[rewarding|有回报的]]. I bought [[essential|必需的]] items such as a [[mattress|床垫]], [[pillows|枕头]], [[bedding|床上用品]], [[kitchenware|厨房用具]], and a [[desk|书桌]] for studying. I also [[decorated|装饰]] the walls with a few [[posters|海报]] and [[plants|植物]] to make the space feel [[cosy|舒适的]]. My [[neighbours|邻居]] introduced themselves and offered helpful [[tips|建议]] about the area, including the best [[laundry|洗衣店]], the nearest [[pharmacy|药店]], and a cheap [[café|咖啡馆]] nearby.
+
+Living independently taught me many [[skills|技能]] that no [[textbook|教科书]] could provide. I learned to [[budget|做预算]] my [[expenses|开支]], [[cook|做饭]] simple meals, and [[manage|管理]] my time between [[studies|学习]] and [[household chores|家务]]. I also learned to [[communicate|沟通]] with my [[flatmate|室友]] about [[cleaning schedules|清洁安排]], [[shared spaces|共享空间]], and [[noise levels|噪音水平]]. Occasionally we had [[disagreements|分歧]], but we resolved them through [[discussion|讨论]] and [[mutual respect|相互尊重]].
+
+Looking back, finding accommodation was more than a [[logistical|后勤的]] task. It was a [[transition|过渡]] into [[adulthood|成年]] and [[independence|独立]]. It taught me [[patience|耐心]], [[adaptability|适应能力]], and the importance of [[planning|规划]]. A comfortable home is not just a [[shelter|住所]]; it is a [[foundation|基础]] for [[well-being|幸福]] and [[academic success|学业成功]]. I now feel [[settled|安顿下来的]] and ready to focus on my [[goals|目标]].`},
+{tag:"02 · Campus Life 校园生活",title:"My First Month at University",text:`The first month at university was a [[whirlwind|旋风般的]] of new [[experiences|经历]], [[emotions|情绪]], and [[responsibilities|责任]]. Everything felt [[unfamiliar|陌生的]] at first: the huge [[campus|校园]], the complex [[timetable|课程表]], and the [[expectations|期望]] of [[academic|学术的]] life. Yet, within a few weeks, I began to [[adapt|适应]] and even [[enjoy|享受]] the [[challenges|挑战]].
+
+[[Orientation|迎新会]] week was designed to help [[freshers|大一新生]] [[settle in|适应]]. We attended [[welcome sessions|欢迎会]], [[campus tours|校园参观]], and [[workshops|工作坊]] on [[study skills|学习技巧]]. We were given a [[student ID card|学生证]], a [[handbook|手册]], and access to the [[university portal|大学门户网站]]. The [[staff|教职员工]] explained [[registration|注册]] procedures, [[module|课程单元]] selection, and [[assessment|评估]] methods. I was [[impressed|印象深刻的]] by how [[organised|有条理的]] everything was, though the amount of [[information|信息]] was [[overwhelming|令人不知所措的]].
+
+I registered for four [[modules|课程单元]]: [[Introduction to Economics|经济学导论]], [[Principles of Psychology|心理学原理]], [[Academic Writing|学术写作]], and [[Data Analysis|数据分析]]. Each module had [[lectures|讲座]], [[seminars|研讨课]], and [[tutorials|辅导课]]. [[Lectures|讲座]] were large, sometimes with hundreds of students, while [[seminars|研讨课]] and [[tutorials|辅导课]] were smaller and more [[interactive|互动的]]. [[Attendance|出勤]] was [[compulsory|必修的]] for some sessions, and [[participation|参与]] counted towards our [[final grade|最终成绩]].
+
+The biggest [[adjustment|调整]] was [[time management|时间管理]]. Unlike school, university required [[independent|独立的]] [[learning|学习]] and [[self-discipline|自律]]. We had to read [[articles|文章]], [[textbooks|教科书]], and [[journals|期刊]] before each [[seminar|研讨课]]. We also had to submit [[assignments|作业]], [[essays|论文]], and [[reports|报告]] by strict [[deadlines|截止日期]]. At first, I [[procrastinated|拖延]] and felt [[stressed|有压力的]]. Then I created a [[schedule|日程表]], set [[reminders|提醒]], and [[prioritised|优先处理]] tasks. I also formed a [[study group|学习小组]] with classmates, which made [[revision|复习]] more [[effective|有效的]] and [[enjoyable|愉快的]].
+
+Beyond [[academics|学业]], campus life offered many [[opportunities|机会]] for [[personal growth|个人成长]]. I joined a [[student society|学生社团]] for [[photography|摄影]] and another for [[debating|辩论]]. These [[activities|活动]] helped me improve my [[communication skills|沟通技巧]], [[teamwork|团队合作]], and [[leadership|领导力]]. I also volunteered at a [[charity event|慈善活动]] and attended [[guest lectures|客座讲座]] by [[professionals|专业人士]]. The [[library|图书馆]] became my second home, with its [[quiet|安静的]] [[study areas|学习区]], [[computers|电脑]], and [[online databases|在线数据库]].
+
+Of course, there were [[difficulties|困难]]. I sometimes felt [[homesick|想家的]] and [[lonely|孤独的]]. I [[missed|想念]] my family and old friends. But I gradually made new [[friendships|友谊]] and learned to [[reach out|寻求帮助]] when I needed [[support|支持]]. The university offered [[counselling|心理咨询]] services and [[academic advisors|学业导师]] who were [[helpful|有帮助的]] and [[understanding|理解的]].
+
+By the end of the first month, I had grown more [[confident|自信的]] and [[independent|独立的]]. I understood that university is not only about [[grades|成绩]] but also about [[discovery|发现]], [[growth|成长]], and [[balance|平衡]]. It is a [[journey|旅程]] rather than a [[destination|目的地]]. I look forward to the rest of the [[semester|学期]] and the many [[lessons|教训]] it will bring.`},
+{tag:"03 · Travel 旅游与交通",title:"A Journey Across the Country",text:`Last summer, I decided to take a [[long-distance|长途的]] [[journey|旅程]] across the country. It was a [[spontaneous|自发的]] decision, made after a [[stressful|有压力的]] [[semester|学期]] at university. I needed a [[break|休息]] from [[routines|日常事务]], [[deadlines|截止日期]], and [[screen time|屏幕时间]]. My [[destination|目的地]] was a [[coastal|沿海的]] town in the south, known for its [[scenic|风景优美的]] [[landscapes|风景]] and [[historical|历史的]] [[heritage|遗产]].
+
+I began by [[planning|规划]] the [[itinerary|行程]]. I [[booked|预订]] [[tickets|票]] online, compared [[prices|价格]] across different [[platforms|平台]], and chose an [[overnight|过夜的]] [[train|火车]] to save [[accommodation|住宿]] costs. The [[departure|出发]] was from a [[central|中心的]] [[station|车站]] at 8 p.m. I arrived early to avoid [[delays|延误]] and to find the right [[platform|站台]]. The [[carriage|车厢]] was [[crowded|拥挤的]], but I managed to find a [[seat|座位]] near the [[window|窗户]].
+
+During the journey, I passed through [[diverse|多样的]] [[regions|地区]]: [[fertile|肥沃的]] [[plains|平原]], [[rugged|崎岖的]] [[mountains|山脉]], [[dense|茂密的]] [[forests|森林]], and [[quiet|安静的]] [[villages|村庄]]. I saw [[wildlife|野生动物]] such as [[deer|鹿]] and [[birds|鸟类]], and [[occasionally|偶尔]] a [[river|河流]] or [[lake|湖泊]] reflecting the [[sunset|日落]]. I took [[photographs|照片]] and wrote [[notes|笔记]] in my [[journal|日记]]. The [[scenery|景色]] was [[breathtaking|令人惊叹的]], and I felt a sense of [[freedom|自由]] and [[adventure|冒险]].
+
+My first [[stop|停留]] was a [[medieval|中世纪的]] [[castle|城堡]] on a [[hill|山丘]]. I joined a [[guided tour|有导游的游览]] and learned about its [[architecture|建筑]], [[fortifications|防御工事]], and [[royal|皇家的]] [[history|历史]]. The [[tour guide|导游]] explained how [[sieges|围攻]] and [[battles|战役]] shaped the [[region|地区]]. I also visited a [[museum|博物馆]] nearby, which displayed [[artifacts|手工艺品]], [[manuscripts|手稿]], and [[paintings|绘画]]. The [[exhibits|展品]] were [[informative|信息丰富的]] and well [[organised|有条理的]].
+
+Next, I travelled to a [[seaside|海滨的]] town. I stayed at a [[guesthouse|客栈]] run by a [[friendly|友好的]] family. They provided [[accommodation|住宿]], [[breakfast|早餐]], and useful [[recommendations|推荐]] about [[local|当地的]] [[attractions|景点]]. I spent my days [[exploring|探索]] [[beaches|海滩]], [[hiking|徒步]] along [[cliffs|悬崖]], and [[sampling|品尝]] [[seafood|海鲜]] at [[markets|市场]]. One evening, I took a [[boat|船]] trip to watch [[dolphins|海豚]] and [[seals|海豹]] in their [[natural|自然的]] [[habitat|栖息地]].
+
+[[Transport|交通]] within the town was [[limited|有限的]], so I [[rented|租用]] a [[bicycle|自行车]]. This was [[environmentally friendly|环保的]], [[affordable|负担得起的]], and allowed me to [[navigate|导航]] narrow [[streets|街道]] and [[alleys|小巷]]. I used a [[map|地图]] and a [[mobile app|手机应用]] to find [[routes|路线]]. Once, I [[missed|错过]] a [[signpost|路标]] and got [[lost|迷路的]]. Fortunately, a [[passenger|乘客]] and a [[local resident|当地居民]] helped me find the right [[direction|方向]].
+
+The journey taught me many [[lessons|教训]]. I learned to [[adapt|适应]] to [[unexpected|意外的]] situations, such as [[cancelled|取消的]] [[flights|航班]] and [[delayed|延误的]] [[connections|换乘]]. I also learned the value of [[patience|耐心]], [[flexibility|灵活性]], and [[communication|沟通]]. Travel is not only about [[destinations|目的地]] but also about [[experiences|经历]], [[people|人们]], and [[perspectives|视角]]. It [[broadens|拓宽]] the [[mind|思维]] and [[enriches|丰富]] the [[soul|灵魂]].
+
+Looking back, this journey was [[unforgettable|难忘的]]. It reminded me that [[adventure|冒险]] often begins when we step outside our [[comfort zone|舒适区]]. I hope to [[explore|探索]] more [[countries|国家]], [[cultures|文化]], and [[landscapes|风景]] in the future. For now, I carry the [[memories|记忆]] and [[photographs|照片]] with me, as [[reminders|提醒]] of a [[remarkable|非凡的]] [[chapter|篇章]] in my life.`},
+{tag:"04 · Health 健康与医疗",title:"A Health Scare and Its Lessons",text:`Last winter, I experienced a [[health|健康]] [[scare|惊吓]] that changed my [[perspective|视角]] on [[well-being|幸福]]. It began with [[mild|轻微的]] [[symptoms|症状]]: a [[headache|头痛]], a [[sore throat|喉咙痛]], and [[fatigue|疲劳]]. I [[ignored|忽视]] them at first, assuming they would [[pass|消失]]. But within a few days, I developed a [[fever|发烧]], [[chills|发冷]], and a [[persistent|持续的]] [[cough|咳嗽]]. I decided to visit a [[clinic|诊所]] near my [[apartment|公寓]].
+
+At the [[reception|接待处]], the [[receptionist|接待员]] asked for my [[insurance|保险]] details and [[medical history|病史]]. I filled in a [[form|表格]] and waited in the [[waiting room|候诊室]]. A [[nurse|护士]] checked my [[blood pressure|血压]], [[temperature|体温]], and [[heart rate|心率]]. She asked about my [[symptoms|症状]], [[allergies|过敏]], and any [[medication|药物]] I was taking. Then the [[doctor|医生]] examined me. She listened to my [[breathing|呼吸]] with a [[stethoscope|听诊器]], checked my [[throat|喉咙]], and [[palpated|触诊]] my [[abdomen|腹部]].
+
+The doctor explained that I had a [[viral|病毒的]] [[infection|感染]], likely [[influenza|流感]]. She [[prescribed|开处方]] [[antiviral|抗病毒的]] [[medicine|药物]], [[painkillers|止痛药]], and a [[cough syrup|止咳糖浆]]. She advised me to [[rest|休息]], [[hydrate|补水]], and [[monitor|监测]] my [[temperature|体温]]. She also warned me about [[potential|潜在的]] [[complications|并发症]] such as [[pneumonia|肺炎]] and [[dehydration|脱水]]. If my symptoms [[worsened|恶化]], I should return or go to the [[emergency room|急诊室]].
+
+I followed her [[advice|建议]] and stayed home for a week. I [[isolated|隔离]] myself to avoid [[infecting|传染]] others. I drank [[fluids|液体]], ate [[nutritious|有营养的]] [[meals|餐食]], and slept [[adequately|充分地]]. I also took [[vitamins|维生素]] and [[supplements|补充剂]] to [[boost|增强]] my [[immune system|免疫系统]]. Gradually, my [[energy|精力]] returned, and the [[symptoms|症状]] [[subsided|消退]].
+
+This experience taught me the importance of [[prevention|预防]] and [[healthy habits|健康习惯]]. I now [[prioritise|优先考虑]] [[sleep|睡眠]], [[exercise|锻炼]], and a [[balanced diet|均衡饮食]]. I also [[schedule|安排]] regular [[check-ups|体检]] and [[vaccinations|疫苗接种]]. [[Mental health|心理健康]] is equally important. I practice [[mindfulness|正念]], [[meditation|冥想]], and [[stress management|压力管理]] to maintain [[emotional|情绪的]] [[balance|平衡]].
+
+I also learned to [[recognise|识别]] [[warning signs|警告信号]] and seek [[professional|专业的]] help early. [[Self-medication|自我药疗]] can be [[risky|有风险的]], especially with [[antibiotics|抗生素]] and [[painkillers|止痛药]]. [[Pharmacists|药剂师]] can provide [[guidance|指导]] on [[dosage|剂量]] and [[side effects|副作用]]. [[Public health|公共卫生]] [[campaigns|运动]] and [[awareness|意识]] programmes also play a vital [[role|作用]] in [[preventing|预防]] [[diseases|疾病]] and [[promoting|促进]] [[wellness|健康]].
+
+Today, I feel [[grateful|感激的]] for my [[recovery|康复]] and the [[care|护理]] I received. Health is not a [[luxury|奢侈品]] but a [[necessity|必需品]]. It is the [[foundation|基础]] of everything we do. I hope my story [[encourages|鼓励]] others to take their health [[seriously|认真地]] and to [[seek|寻求]] help when needed.`},
+{tag:"05 · Work 工作与职业",title:"From Graduation to Employment",text:`Graduating from university was both a [[milestone|里程碑]] and a [[turning point|转折点]]. After years of [[lectures|讲座]], [[assignments|作业]], and [[examinations|考试]], I was ready to enter the [[job market|就业市场]]. However, the [[transition|过渡]] from [[student|学生]] to [[employee|雇员]] was more [[challenging|有挑战性的]] than I had [[anticipated|预料]].
+
+I began by [[updating|更新]] my [[CV|简历]] and writing a [[cover letter|求职信]]. I [[highlighted|突出]] my [[qualifications|资格]], [[skills|技能]], and [[internship|实习]] [[experience|经验]]. I also created a [[professional|专业的]] [[profile|个人资料]] on a [[recruitment|招聘]] [[website|网站]]. A [[career advisor|职业顾问]] reviewed my [[application|申请]] materials and suggested improvements. She emphasised the importance of [[tailoring|定制]] each application to the specific [[role|职位]] and [[company|公司]].
+
+After weeks of [[searching|搜索]] and [[applying|申请]], I received several [[invitations|邀请]] for [[interviews|面试]]. The first was a [[telephone interview|电话面试]] with a [[recruiter|招聘人员]]. She asked about my [[motivation|动机]], [[strengths|优势]], [[weaknesses|弱点]], and [[long-term|长期的]] [[goals|目标]]. I explained that I was [[reliable|可靠的]], [[adaptable|适应能力强的]], and [[eager|渴望的]] to learn. The second was a [[face-to-face|面对面的]] interview with a [[panel|专家组]]. They asked [[situational|情境的]] questions and [[assessed|评估]] my [[problem-solving|解决问题的]] and [[teamwork|团队合作]] abilities.
+
+A week later, I received an [[offer|录用通知]]. The [[salary|薪水]] was [[competitive|有竞争力的]], and the [[benefits|福利]] included [[health insurance|健康保险]], [[paid leave|带薪休假]], and [[training|培训]] opportunities. The [[working conditions|工作条件]] were [[favourable|有利的]], and the [[office|办公室]] was [[modern|现代的]] and [[well-equipped|设备齐全的]]. My [[colleagues|同事]] were [[supportive|支持的]], and my [[manager|经理]] was [[approachable|平易近人的]].
+
+However, the job was [[demanding|要求高的]]. It required long [[hours|工作时间]], frequent [[deadlines|截止日期]], and [[attention to detail|注重细节]]. I had to [[prioritise|优先处理]] tasks, [[multitask|同时处理多项任务]], and [[communicate|沟通]] effectively with [[clients|客户]] and [[stakeholders|利益相关者]]. At times, I felt [[overwhelmed|不知所措的]] and [[stressed|有压力的]]. I learned to [[manage|管理]] my time, [[delegate|委派]] when possible, and [[seek|寻求]] [[feedback|反馈]] from [[mentors|导师]].
+
+[[Career development|职业发展]] is an ongoing [[process|过程]]. I attended [[workshops|工作坊]], [[seminars|研讨课]], and [[online courses|在线课程]] to [[enhance|提升]] my [[skills|技能]]. I also [[networked|建立人脉]] with [[professionals|专业人士]] in my [[industry|行业]]. [[Promotion|晋升]] and [[advancement|进步]] depend not only on [[performance|表现]] but also on [[attitude|态度]], [[initiative|主动性]], and [[continuous learning|持续学习]].
+
+I also learned the importance of [[work-life balance|工作与生活的平衡]]. [[Burnout|职业倦怠]] is a real [[risk|风险]] in [[high-pressure|高压的]] environments. I now set [[boundaries|界限]], take regular [[breaks|休息]], and [[dedicate|投入]] time to [[family|家庭]], [[hobbies|爱好]], and [[rest|休息]]. A [[sustainable|可持续的]] career requires [[health|健康]], [[happiness|幸福]], and [[purpose|目标]].
+
+Looking back, my [[career journey|职业旅程]] has been [[rewarding|有回报的]]. It has taught me [[resilience|韧性]], [[patience|耐心]], and the value of [[lifelong learning|终身学习]]. My advice to others is to stay [[positive|积极的]], [[proactive|主动的]], and [[open-minded|思想开明的]]. Success is not a [[destination|目的地]] but a [[continuous|持续的]] [[pursuit|追求]].`},
+{tag:"06 · Environment 环境与自然",title:"Protecting Our Planet",text:`Environmental [[protection|保护]] is one of the most [[urgent|紧迫的]] [[issues|问题]] facing our [[planet|星球]] today. [[Climate change|气候变化]], [[pollution|污染]], [[deforestation|森林砍伐]], and [[loss of biodiversity|生物多样性丧失]] threaten [[ecosystems|生态系统]], [[wildlife|野生动物]], and [[human|人类的]] [[health|健康]]. As a [[responsible|负责任的]] [[citizen|公民]], I decided to learn more about these [[challenges|挑战]] and take [[action|行动]] in my [[community|社区]].
+
+I began by [[researching|研究]] the [[causes|原因]] and [[effects|影响]] of environmental [[degradation|退化]]. I learned that [[greenhouse gas|温室气体]] [[emissions|排放]] from [[fossil fuels|化石燃料]], [[industry|工业]], and [[transportation|交通]] are major [[contributors|贡献者]] to [[global warming|全球变暖]]. [[Deforestation|森林砍伐]] destroys [[habitats|栖息地]] and reduces the [[absorption|吸收]] of [[carbon dioxide|二氧化碳]]. [[Plastic|塑料]] [[waste|垃圾]] pollutes [[oceans|海洋]], harming [[marine|海洋的]] [[life|生物]].
+
+In my [[neighbourhood|社区]], I joined a [[volunteer|志愿者]] group that [[organised|组织]] [[clean-up|清理]] activities. We collected [[litter|垃圾]] from [[parks|公园]], [[rivers|河流]], and [[beaches|海滩]]. We also [[planted|种植]] [[trees|树木]] and [[created|创建]] [[community gardens|社区花园]]. Local [[authorities|当局]] supported us by providing [[bins|垃圾桶]], [[gloves|手套]], and [[educational|教育的]] [[materials|材料]]. We encouraged [[residents|居民]] to [[reduce|减少]], [[reuse|重复使用]], and [[recycle|回收利用]] their [[rubbish|垃圾]].
+
+At home, I adopted more [[sustainable|可持续的]] habits. I [[separated|分类]] [[waste|垃圾]] into [[plastic|塑料]], [[paper|纸]], [[glass|玻璃]], and [[organic|有机的]] [[materials|材料]]. I [[conserved|节约]] [[electricity|电]] and [[water|水]] by turning off [[appliances|电器]] and fixing [[leaks|漏水]]. I used [[public transport|公共交通]], [[cycled|骑自行车]], or [[walked|步行]] instead of driving. I also [[reduced|减少]] my [[consumption|消费]] of [[single-use|一次性的]] [[plastics|塑料制品]] such as [[bags|袋子]], [[bottles|瓶子]], and [[straws|吸管]].
+
+I learned that [[renewable|可再生的]] [[energy|能源]] sources such as [[solar|太阳能的]], [[wind|风能的]], and [[hydroelectric|水电的]] power are [[alternatives|替代品]] to [[fossil fuels|化石燃料]]. [[Governments|政府]] and [[businesses|企业]] are [[investing|投资]] in [[green|绿色的]] [[technology|技术]] and [[infrastructure|基础设施]]. [[International|国际的]] [[agreements|协议]] such as the [[Paris Agreement|巴黎协定]] aim to [[limit|限制]] [[temperature|温度]] [[rise|上升]] and [[promote|促进]] [[sustainability|可持续性]].
+
+However, [[change|改变]] is not easy. Some people [[ignore|忽视]] the problem or believe it is not their [[responsibility|责任]]. Others [[lack|缺乏]] [[awareness|意识]] or [[resources|资源]]. [[Education|教育]] and [[campaigns|运动]] can help [[raise|提高]] [[awareness|意识]] and [[encourage|鼓励]] [[action|行动]]. [[Individuals|个人]], [[communities|社区]], [[governments|政府]], and [[corporations|企业]] all have a [[role|作用]] to play.
+
+I believe that [[small|小的]] actions can make a [[significant|显著的]] [[difference|差别]]. If everyone [[contributes|贡献]], we can [[protect|保护]] our [[environment|环境]] for [[future|未来的]] [[generations|世代]]. [[Nature|自然]] is not a [[resource|资源]] to be [[exploited|剥削]] but a [[treasure|财富]] to be [[preserved|保护]]. [[Sustainability|可持续性]] is not a [[choice|选择]] but a [[necessity|必需品]].`},
+{tag:"07 · Technology 科技与媒体",title:"How Technology Reshaped My Daily Life",text:`Technology has [[transformed|改变]] almost every [[aspect|方面]] of modern life, from [[communication|沟通]] and [[education|教育]] to [[work|工作]] and [[entertainment|娱乐]]. I still remember the first [[smartphone|智能手机]] I owned. It was a [[compact|小巧的]] [[device|设备]] with a [[touchscreen|触摸屏]], a [[camera|摄像头]], and [[access|访问]] to the [[internet|互联网]]. At the time, I did not realise how [[profoundly|深刻地]] it would [[reshape|重塑]] my daily [[habits|习惯]].
+
+One of the most [[visible|明显的]] changes is the way we [[communicate|沟通]]. [[Instant messaging|即时通讯]] [[applications|应用程序]] such as [[WhatsApp|瓦次艾普]], [[WeChat|微信]], and [[Telegram|电报]] allow users to send [[messages|消息]], [[photos|照片]], and [[videos|视频]] within [[seconds|秒]]. [[Video conferencing|视频会议]] [[platforms|平台]] like [[Zoom|缩放]] and [[Teams|团队]] enable [[remote|远程的]] [[meetings|会议]] and [[collaboration|合作]]. [[Social media|社交媒体]] sites such as [[Instagram|照片墙]], [[Twitter|推特]], and [[TikTok|抖音国际版]] connect [[billions|数十亿]] of [[users|用户]] worldwide. These [[tools|工具]] have made [[communication|沟通]] faster, cheaper, and more [[convenient|方便的]].
+
+However, [[technology|技术]] also brings [[challenges|挑战]]. [[Misinformation|错误信息]] and [[fake news|假新闻]] spread quickly online, [[confusing|使困惑]] the public and [[undermining|削弱]] [[trust|信任]]. [[Cyberbullying|网络欺凌]], [[harassment|骚扰]], and [[privacy|隐私]] [[breaches|泄露]] are serious [[concerns|担忧]]. Many people spend [[excessive|过多的]] time on their [[screens|屏幕]], leading to [[digital|数字的]] [[addiction|上瘾]], [[sleep deprivation|睡眠不足]], and [[reduced|减少的]] [[face-to-face|面对面的]] [[interaction|互动]]. [[Regulations|法规]] and [[digital literacy|数字素养]] are needed to address these issues.
+
+[[Artificial intelligence|人工智能]] is another [[revolutionary|革命性的]] [[innovation|创新]]. [[AI|人工智能]] [[systems|系统]] can [[translate|翻译]] languages, [[analyse|分析]] [[data|数据]], [[diagnose|诊断]] [[diseases|疾病]], and even [[create|创作]] [[art|艺术]] and [[music|音乐]]. [[Machine learning|机器学习]] [[algorithms|算法]] power [[recommendation|推荐]] [[engines|引擎]], [[voice assistants|语音助手]], and [[autonomous|自主的]] [[vehicles|车辆]]. These [[advances|进步]] offer [[enormous|巨大的]] [[potential|潜力]] but also raise [[ethical|伦理的]] and [[security|安全]] questions.
+
+In my own life, I try to use technology [[responsibly|负责任地]] and [[productively|有成效地]]. I use [[productivity|生产力]] [[apps|应用]] to [[organise|组织]] my [[schedule|日程]], [[manage|管理]] [[tasks|任务]], and [[track|追踪]] my [[progress|进步]]. I take [[online courses|在线课程]] to learn new [[skills|技能]]. I use [[cloud storage|云存储]] to [[back up|备份]] [[documents|文件]] and [[photos|照片]]. I also set [[boundaries|界限]] for [[screen time|屏幕时间]] and [[prioritise|优先考虑]] [[real-world|现实世界的]] [[activities|活动]] such as [[exercise|锻炼]], [[reading|阅读]], and [[spending time|共度时光]] with family and friends.
+
+Looking ahead, I believe technology will continue to [[evolve|演变]] and [[integrate|整合]] into every part of our lives. [[Virtual reality|虚拟现实]], [[augmented reality|增强现实]], and the [[Internet of Things|物联网]] will [[blur|模糊]] the [[boundaries|界限]] between the [[physical|物理的]] and [[digital|数字的]] worlds. [[Innovation|创新]] will bring new [[opportunities|机会]] and new [[dilemmas|困境]]. The key is to remain [[curious|好奇的]], [[critical|批判性的]], and [[adaptable|适应能力强的]]. Technology is a [[tool|工具]], not a [[master|主人]]. We must [[shape|塑造]] it to [[serve|服务]] human [[needs|需求]] and [[values|价值观]].`},
+{tag:"08 · Culture 文化与节日",title:"Celebrating Traditions in a Modern World",text:`Culture is the [[heartbeat|心跳]] of a [[community|社区]]. It [[shapes|塑造]] our [[identity|身份]], [[values|价值观]], and [[sense|感觉]] of [[belonging|归属感]]. In my family, [[traditions|传统]] have been [[passed down|传承]] from [[generation|世代]] to [[generation|世代]]. These [[customs|习俗]] connect us to our [[ancestors|祖先]], our [[history|历史]], and each other. One of the most important [[celebrations|庆祝活动]] in my culture is the [[annual|每年的]] [[festival|节日]] that [[marks|标志]] the [[beginning|开始]] of a new [[season|季节]].
+
+Preparations begin weeks in [[advance|提前]]. Families [[clean|打扫]] their homes to [[sweep away|扫除]] [[bad luck|厄运]] and [[welcome|迎接]] [[good fortune|好运]]. We [[decorate|装饰]] our [[houses|房屋]] with [[lanterns|灯笼]], [[couplets|对联]], and [[flowers|花卉]]. We [[prepare|准备]] [[traditional|传统的]] [[dishes|菜肴]] such as [[dumplings|饺子]], [[rice cakes|年糕]], and [[spring rolls|春卷]]. The [[aroma|香气]] of [[spices|香料]], [[herbs|香草]], and [[sauces|酱料]] fills the [[kitchen|厨房]].
+
+The [[festival|节日]] itself is a [[joyful|欢乐的]] [[occasion|场合]]. Family members [[gather|聚集]] for a [[reunion|团聚]] [[dinner|晚餐]]. We [[exchange|交换]] [[gifts|礼物]] and [[red envelopes|红包]] containing [[money|钱]], which [[symbolise|象征]] [[luck|运气]] and [[prosperity|繁荣]]. Children [[receive|收到]] [[blessings|祝福]] and [[words|话语]] of [[wisdom|智慧]] from their [[elders|长辈]]. We [[watch|观看]] [[performances|表演]] featuring [[music|音乐]], [[dancing|舞蹈]], [[dragon dances|舞龙]], and [[fireworks|烟花]]. The [[atmosphere|氛围]] is [[festive|节日的]], [[warm|温暖的]], and [[memorable|难忘的]].
+
+Beyond my family, the festival is celebrated across the [[country|国家]] and in [[communities|社区]] around the world. [[Cultural|文化的]] [[organisations|组织]] host [[events|活动]] such as [[parades|游行]], [[exhibitions|展览]], and [[workshops|工作坊]]. [[Artists|艺术家]] and [[performers|表演者]] showcase [[traditional|传统的]] [[crafts|工艺]], [[calligraphy|书法]], and [[folk|民间的]] [[music|音乐]]. These [[activities|活动]] help [[preserve|保存]] [[heritage|遗产]] and [[promote|促进]] [[understanding|理解]] between [[cultures|文化]].
+
+In a [[globalised|全球化的]] world, traditions face both [[opportunities|机会]] and [[challenges|挑战]]. [[Migration|移民]], [[urbanisation|城市化]], and [[technology|技术]] have changed how people [[live|生活]], [[work|工作]], and [[celebrate|庆祝]]. Some [[customs|习俗]] are [[fading|消失]] as younger generations [[adopt|采用]] new [[lifestyles|生活方式]]. Yet, many traditions [[adapt|适应]] and [[survive|存活]]. [[Fusion|融合]] [[cuisine|烹饪]], [[modern|现代的]] [[interpretations|诠释]] of [[folk|民间的]] [[arts|艺术]], and [[online|在线的]] [[celebrations|庆祝]] show that culture is not [[static|静态的]] but [[dynamic|动态的]].
+
+I believe it is important to [[respect|尊重]] and [[preserve|保护]] cultural [[heritage|遗产]] while [[embracing|拥抱]] [[diversity|多样性]] and [[change|变化]]. Traditions give us [[roots|根]] and a [[sense|感觉]] of [[continuity|连续性]]. They remind us of [[shared|共享的]] [[values|价值观]] such as [[respect|尊重]] for [[elders|长辈]], [[gratitude|感恩]], [[generosity|慷慨]], and [[harmony|和谐]]. They also bring [[joy|欢乐]], [[connection|联系]], and [[meaning|意义]] to our lives.
+
+Looking back, I feel [[grateful|感激的]] for the traditions I grew up with. They have [[shaped|塑造]] who I am and [[connected|连接]] me to something [[larger|更大的]] than myself. I hope to [[pass|传递]] these traditions on to the next [[generation|世代]] and to [[share|分享]] them with others. Culture is a [[bridge|桥梁]], not a [[barrier|障碍]]. By [[celebrating|庆祝]] our [[differences|差异]] and [[honouring|尊重]] our [[shared|共享的]] [[humanity|人性]], we can build a more [[harmonious|和谐的]] and [[peaceful|和平的]] world.`},
+{tag:"09 · Education 教育与社会",title:"The Power of Education",text:`Education is often described as the [[greatest|最伟大的]] [[equaliser|均衡器]] in society. It has the [[power|力量]] to [[transform|改变]] [[individuals|个人]], [[communities|社区]], and [[nations|国家]]. My own [[journey|旅程]] through education has taught me that [[knowledge|知识]] is not merely a [[privilege|特权]] but a [[fundamental|基本的]] [[right|权利]]. Yet, [[access|机会]] to quality education remains [[unequal|不平等的]] in many parts of the world.
+
+I grew up in a [[rural|农村的]] [[area|地区]] where [[schools|学校]] were [[underfunded|资金不足的]] and [[resources|资源]] were [[limited|有限的]]. Many children had to walk long [[distances|距离]] to attend [[classes|课程]]. Some families could not [[afford|负担得起]] [[textbooks|教科书]], [[uniforms|校服]], or [[transportation|交通]]. [[Poverty|贫困]] forced some students to [[drop out|辍学]] and find [[work|工作]] to [[support|支持]] their families. [[Gender|性别]] [[inequality|不平等]] also prevented some girls from continuing their [[studies|学业]].
+
+Despite these [[obstacles|障碍]], I was [[determined|坚定的]] to learn. A [[dedicated|敬业的]] [[teacher|教师]] recognised my [[potential|潜力]] and [[encouraged|鼓励]] me to apply for a [[scholarship|奖学金]]. That [[opportunity|机会]] changed my life. I moved to a [[city|城市]] to attend a better [[school|学校]], where I had access to a [[library|图书馆]], [[computers|电脑]], and [[qualified|合格的]] [[instructors|教师]]. I discovered new [[subjects|科目]] such as [[science|科学]], [[mathematics|数学]], and [[literature|文学]]. I also learned [[critical thinking|批判性思维]], [[problem-solving|解决问题]], and [[communication|沟通]] skills.
+
+Education is not only about [[academic|学术的]] [[achievement|成就]]. It also [[shapes|塑造]] [[character|品格]], [[values|价值观]], and [[citizenship|公民意识]]. It teaches us to [[respect|尊重]] [[diversity|多样性]], [[cooperate|合作]] with others, and [[contribute|贡献]] to society. [[Schools|学校]] should [[nurture|培养]] [[creativity|创造力]], [[curiosity|好奇心]], and [[lifelong learning|终身学习]]. [[Teachers|教师]] play a [[vital|至关重要的]] [[role|作用]] in [[inspiring|激励]] students and [[guiding|引导]] their [[development|发展]].
+
+However, [[education systems|教育体系]] face many [[challenges|挑战]]. [[Overcrowded|过度拥挤的]] classrooms, [[outdated|过时的]] [[curricula|课程]], and [[high|高的]] [[dropout|辍学]] rates are common in some [[regions|地区]]. [[Technology|技术]] can help [[bridge|弥合]] the [[gap|差距]] by providing [[online courses|在线课程]], [[digital|数字的]] [[resources|资源]], and [[remote|远程的]] learning. But the [[digital divide|数字鸿沟]] means that not everyone has [[equal|平等的]] access to these [[tools|工具]].
+
+[[Governments|政府]], [[organisations|组织]], and [[communities|社区]] must work together to [[improve|改善]] [[access|机会]] and [[quality|质量]]. This includes [[investing|投资]] in [[teacher training|教师培训]], [[infrastructure|基础设施]], and [[scholarships|奖学金]] for [[disadvantaged|处于不利地位的]] students. [[Policies|政策]] should [[promote|促进]] [[inclusion|包容]], [[equality|平等]], and [[excellence|卓越]]. Education should prepare students for [[real life|现实生活]], not just [[exams|考试]].
+
+I believe that education is the [[foundation|基础]] of a [[fair|公平的]] and [[prosperous|繁荣的]] society. It [[empowers|赋权]] individuals to [[improve|改善]] their [[lives|生活]] and [[contribute|贡献]] to the [[common good|共同利益]]. It [[breaks|打破]] the [[cycle|循环]] of [[poverty|贫困]] and [[inequality|不平等]]. It [[fosters|培养]] [[understanding|理解]], [[tolerance|宽容]], and [[peace|和平]]. As Nelson Mandela said, "Education is the most [[powerful|强大的]] [[weapon|武器]] which you can use to change the world."
+
+Looking back, I am [[grateful|感激的]] for the education I received and the people who [[supported|支持]] me along the way. I now [[volunteer|志愿服务]] to [[tutor|辅导]] [[underprivileged|贫困的]] children in my [[community|社区]]. I want to [[give back|回馈]] and [[inspire|激励]] others to [[pursue|追求]] their [[dreams|梦想]]. Education is a [[journey|旅程]], not a [[destination|目的地]]. It is a [[lifelong|终身的]] [[process|过程]] of [[growth|成长]], [[discovery|发现]], and [[transformation|转变]].`},
+{tag:"10 · City & Countryside 城市与乡村",title:"Choosing Between Two Worlds",text:`The [[debate|争论]] between living in the [[city|城市]] and living in the [[countryside|乡村]] is a [[common|常见的]] [[dilemma|困境]] for many people. Both [[environments|环境]] offer [[distinct|独特的]] [[advantages|优势]] and [[disadvantages|劣势]]. Having lived in both, I have experienced the [[contrasts|对比]] firsthand and learned that the [[best|最好的]] choice depends on one's [[priorities|优先事项]], [[lifestyle|生活方式]], and [[stage|阶段]] of life.
+
+Cities are [[centres|中心]] of [[opportunity|机会]], [[innovation|创新]], and [[culture|文化]]. They offer [[abundant|丰富的]] [[employment|就业]] [[prospects|前景]], [[educational|教育的]] [[institutions|机构]], and [[healthcare|医疗保健]] [[facilities|设施]]. [[Public transport|公共交通]] is usually [[efficient|高效的]], and [[entertainment|娱乐]] options such as [[theatres|剧院]], [[museums|博物馆]], [[restaurants|餐厅]], and [[shopping centres|购物中心]] are [[readily|容易地]] available. Cities also attract [[diverse|多样的]] [[populations|人口]], creating [[vibrant|充满活力的]] [[communities|社区]] and [[multicultural|多元文化的]] [[experiences|经历]].
+
+However, urban life has its [[drawbacks|缺点]]. [[Pollution|污染]], [[traffic congestion|交通拥堵]], and [[noise|噪音]] are [[persistent|持续的]] problems. The [[cost of living|生活成本]] is often [[high|高的]], especially [[housing|住房]] and [[rent|租金]]. [[Overcrowding|过度拥挤]] can lead to [[stress|压力]], [[anonymity|匿名性]], and a [[sense|感觉]] of [[isolation|孤立]]. [[Crime|犯罪]] rates may be higher in certain [[neighbourhoods|社区]]. Many [[residents|居民]] feel [[rushed|匆忙的]] and [[exhausted|疲惫的]] by the fast [[pace|节奏]] of city life.
+
+The countryside, by contrast, offers [[tranquility|宁静]], [[fresh air|新鲜空气]], and a [[close|紧密的]] [[connection|联系]] with [[nature|自然]]. [[Scenery|风景]] is often [[breathtaking|令人惊叹的]], with [[mountains|山脉]], [[fields|田野]], [[forests|森林]], and [[rivers|河流]]. [[Communities|社区]] tend to be [[tight-knit|关系紧密的]], and people often know their [[neighbours|邻居]]. [[Stress|压力]] levels are generally lower, and [[life|生活]] moves at a [[slower|更慢的]] [[pace|节奏]]. [[Housing|住房]] is more [[affordable|负担得起的]], and [[crime|犯罪]] is often less [[prevalent|普遍的]].
+
+Yet rural life has its own [[challenges|挑战]]. [[Employment|就业]] opportunities are [[limited|有限的]], especially in [[specialised|专业的]] fields. [[Public transport|公共交通]] may be [[infrequent|不频繁的]] or [[unavailable|不可用的]], making [[car|汽车]] ownership [[essential|必需的]]. [[Healthcare|医疗保健]], [[education|教育]], and [[entertainment|娱乐]] [[facilities|设施]] may be [[scarce|稀缺的]]. [[Young people|年轻人]] often [[migrate|迁移]] to cities for [[work|工作]] and [[study|学习]], leaving [[ageing|老龄化的]] [[populations|人口]] behind. [[Internet|互联网]] [[connectivity|连接]] can also be [[unreliable|不可靠的]] in [[remote|偏远的]] areas.
+
+In recent years, [[technology|技术]] has [[blurred|模糊]] the [[boundaries|界限]] between city and countryside. [[Remote work|远程工作]] allows people to [[earn|赚取]] a [[living|生计]] without commuting to an [[office|办公室]]. [[Online shopping|网上购物]] and [[delivery|配送]] services bring [[goods|商品]] to [[rural|农村的]] [[doorsteps|家门口]]. [[Digital|数字的]] [[nomads|游牧者]] choose to live in [[scenic|风景优美的]] areas while working for [[companies|公司]] in [[cities|城市]]. This [[flexibility|灵活性]] offers new [[possibilities|可能性]] for [[work-life balance|工作与生活的平衡]].
+
+Ultimately, the choice between city and countryside is [[personal|个人的]]. Some people [[thrive|茁壮成长]] on the [[energy|活力]] and [[opportunities|机会]] of the city. Others [[prefer|更喜欢]] the [[peace|宁静]] and [[community|社区]] of rural life. Many [[compromise|妥协]] by living in [[suburbs|郊区]] or [[smaller towns|小城镇]] that offer a [[balance|平衡]] of both. What matters most is finding an [[environment|环境]] that [[supports|支持]] your [[well-being|幸福]], [[goals|目标]], and [[values|价值观]].
+
+I have learned to [[appreciate|欣赏]] the [[strengths|优势]] of both worlds. The city [[stimulates|刺激]] my [[mind|思维]] and [[expands|扩展]] my [[network|人脉]]. The countryside [[restores|恢复]] my [[energy|精力]] and [[reconnects|重新连接]] me with [[nature|自然]]. Ideally, I would like to [[divide|分配]] my time between the two, enjoying the [[best|最好的]] of both. Life is not about choosing one [[extreme|极端]] over another, but about finding [[harmony|和谐]] and [[fulfilment|满足]] wherever you are.`}
+];
+
+/* =========================================================
+   2. 逐句中文翻译（按句子顺序，部分关键句）
+   ========================================================= */
+const cnTranslations = {
+  0: ["当我收到确认，我被一所大都市的大学录取时，我既兴奋又焦虑。","我上网搜索，浏览那些列出可用房产的网站。","在签任何东西之前，我仔细阅读了合同。","搬进来既累人又有回报。"],
+  1: ["大学第一个月就像一阵旋风，充满了新经历、新情绪和新责任。","迎新周是为了帮助大一新生适应。","最大的调整是时间管理。","当然，也有困难的时候。"],
+  2: ["去年夏天，我决定去乡下长途旅行。","我开始规划行程。","旅途中，我经过了各种各样的地区。","这次旅行教会了我很多教训。"],
+  3: ["去年冬天，我经历了一场健康惊吓，改变了我对幸福的看法。","在接待处，接待员问了我的保险信息和病史。","医生解释说我感染了病毒，很可能是流感。","这次经历教会了我预防和健康习惯的重要性。"],
+  4: ["从大学毕业既是一个里程碑，也是一个转折点。","我开始更新简历，写求职信。","几周后，我收到了录用通知。","然而，这份工作要求很高。"],
+  5: ["环境保护是当今我们星球面临的最紧迫问题之一。","我开始研究环境退化的原因和影响。","在家里，我养成了更可持续的习惯。","然而，改变并不容易。"],
+  6: ["科技几乎改变了现代生活的方方面面。","最明显的变化之一是我们沟通的方式。","然而，科技也带来了挑战。","展望未来，我相信科技会继续演变。"],
+  7: ["文化是社区的心跳。","准备工作提前几周就开始了。","节日本身就是一个欢乐的场合。","在全球化世界里，传统既面临机遇也面临挑战。"],
+  8: ["教育常被描述为社会中最伟大的均衡器。","我在农村地区长大。","尽管有这些障碍，我仍然坚定地要学习。","然而，教育体系面临许多挑战。"],
+  9: ["住在城市还是住在乡下，是许多人常见的困境。","城市是机会、创新和文化的中心。","然而，城市生活也有缺点。","最终，城市和乡村之间的选择是个人的。"]
+};
+
+/* =========================================================
+   3. 全局语速
+   ========================================================= */
+let speechRate = 0.9;
+const rateSlider = document.getElementById('rateSlider');
+const rateValue = document.getElementById('rateValue');
+rateSlider.addEventListener('input', () => {
+  speechRate = parseFloat(rateSlider.value);
+  rateValue.textContent = speechRate.toFixed(2) + 'x';
+});
+function setRate(v) {
+  speechRate = v;
+  rateSlider.value = v;
+  rateValue.textContent = v.toFixed(2) + 'x';
+}
+
+/* =========================================================
+   4. 错题本
+   ========================================================= */
+const WRONG_KEY = 'ielts_wrong_words_v1';
+function loadWrong() { try { return JSON.parse(localStorage.getItem(WRONG_KEY)) || {}; } catch (e) { return {}; } }
+function saveWrong(obj) { try { localStorage.setItem(WRONG_KEY, JSON.stringify(obj)); } catch (e) {} updateWrongBadge(); }
+function addWrong(word) { const w = loadWrong(); w[word] = (w[word] || 0) + 1; saveWrong(w); }
+function removeWrong(word) { const w = loadWrong(); delete w[word]; saveWrong(w); renderWrongList(); }
+function clearWrongBook() { if (confirm('确定清空错题本吗？')) { saveWrong({}); renderWrongList(); } }
+function updateWrongBadge() { const w = loadWrong(); document.getElementById('wrongBtn').setAttribute('data-count', Object.keys(w).length); }
+function showWrongBook() { renderWrongList(); document.getElementById('wrongModal').classList.add('show'); }
+function closeWrongBook() { document.getElementById('wrongModal').classList.remove('show'); }
+function renderWrongList() {
+  const w = loadWrong();
+  const entries = Object.entries(w).sort((a, b) => b[1] - a[1]);
+  const box = document.getElementById('wrongList');
+  if (entries.length === 0) { box.innerHTML = '<div class="empty-msg">🎉 错题本是空的，继续加油！</div>'; return; }
+  box.innerHTML = entries.map(([word, count]) => `
+    <div class="wrong-item">
+      <span class="word">${word}</span>
+      <span class="right-side">
+        <span class="count">错 ${count} 次</span>
+        <button class="speaker-btn" data-speak="${word}" title="朗读">🔊</button>
+        <button class="remove-btn" data-remove="${word}" title="移除">✕</button>
+      </span>
+    </div>
+  `).join('');
+}
+
+/* =========================================================
+   5. 语音（英式）
+   ========================================================= */
+let ukVoice = null;
+function pickUKVoice() {
+  if (!('speechSynthesis' in window)) return null;
+  const voices = window.speechSynthesis.getVoices();
+  const uk = voices.find(v => v.lang === 'en-GB' || v.lang === 'en_GB');
+  const ukMale = voices.find(v => (v.lang === 'en-GB' || v.lang === 'en_GB') && /male|daniel|arthur|george|oliver/i.test(v.name));
+  ukVoice = ukMale || uk || null;
+  return ukVoice;
+}
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = pickUKVoice;
+  pickUKVoice();
+}
+function speak(text, opts = {}) {
+  if (!('speechSynthesis' in window)) { alert('你的浏览器不支持语音朗读，建议用 Chrome 或 Edge。'); return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-GB';
+  u.rate = opts.rate !== undefined ? opts.rate : speechRate;
+  u.pitch = opts.pitch || 1;
+  if (!ukVoice) pickUKVoice();
+  if (ukVoice) u.voice = ukVoice;
+  if (opts.onend) u.onend = opts.onend;
+  if (opts.onerror) u.onerror = opts.onerror;
+  window.speechSynthesis.speak(u);
+  return u;
+}
+
+/* =========================================================
+   6. 全文朗读
+   ========================================================= */
+let readAllActive = false, readAllCancelled = false;
+function toggleReadAll() { if (readAllActive) stopReadAll(); else startReadAll(); }
+function startReadAll() {
+  if (!('speechSynthesis' in window)) { alert('浏览器不支持语音朗读'); return; }
+  stopShadowMode();
+  window.speechSynthesis.cancel();
+  readAllActive = true; readAllCancelled = false;
+  const btn = document.getElementById('readAllBtn');
+  btn.classList.add('active'); btn.textContent = '⏹️ 停止朗读';
+  const story = stories[storyOrder[currentStory]];
+  const plainText = story.text.replace(/\[\[([^|]+)\|([^\]]+)\]\]/g, '$1');
+  const answerList = [];
+  story.text.replace(/\[\[([^|]+)\|([^\]]+)\]\]/g, (m, w) => { answerList.push(w); return m; });
+  const cleanWords = plainText.split(/\s+/).filter(w => w.trim());
+  let wordPointer = 0;
+  const highlightMap = new Map();
+  answerList.forEach((ans, inputIdx) => {
+    for (let i = wordPointer; i < cleanWords.length; i++) {
+      const clean = cleanWords[i].replace(/[.,;:!?()"']/g, '');
+      if (clean.toLowerCase() === ans.toLowerCase()) { highlightMap.set(i, inputIdx); wordPointer = i + 1; break; }
+    }
+  });
+  const sentences = plainText.match(/[^.!?]+[.!?]+/g) || [plainText];
+  let sentenceIdx = 0, globalWordIdx = 0;
+  function speakNextSentence() {
+    if (readAllCancelled || sentenceIdx >= sentences.length) { stopReadAll(false); return; }
+    const sentence = sentences[sentenceIdx].trim(); sentenceIdx++;
+    let localWordIdx = 0;
+    const u = new SpeechSynthesisUtterance(sentence);
+    u.lang = 'en-GB'; u.rate = speechRate; u.pitch = 1;
+    if (!ukVoice) pickUKVoice();
+    if (ukVoice) u.voice = ukVoice;
+    u.onboundary = (event) => {
+      if (event.name === 'word') {
+        document.querySelectorAll('input.blank.speaking-now').forEach(el => el.classList.remove('speaking-now'));
+        const inputIdx = highlightMap.get(globalWordIdx);
+        if (inputIdx !== undefined) {
+          const ins = document.querySelectorAll('input.blank');
+          if (ins[inputIdx]) {
+            ins[inputIdx].classList.add('speaking-now');
+            ins[inputIdx].scrollIntoView({ block: 'center', behavior: 'smooth' });
+          }
+        }
+        globalWordIdx++; localWordIdx++;
+      }
+    };
+    u.onend = () => { if (!readAllCancelled) setTimeout(speakNextSentence, 250); else stopReadAll(false); };
+    u.onerror = () => { if (!readAllCancelled) setTimeout(speakNextSentence, 250); else stopReadAll(false); };
+    window.speechSynthesis.speak(u);
+  }
+  speakNextSentence();
+}
+function stopReadAll(resetBtn = true) {
+  readAllActive = false; readAllCancelled = true;
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('input.blank.speaking-now').forEach(el => el.classList.remove('speaking-now'));
+  if (resetBtn) { const btn = document.getElementById('readAllBtn'); btn.classList.remove('active'); btn.textContent = '▶️ 全文朗读'; }
+}
+
+/* =========================================================
+   7. 跟读模式（含录音、中译、打分）
+   ========================================================= */
+let shadowActive = false, shadowCancelled = false;
+let shadowSentences = [], shadowIndex = 0;
+let mediaRecorder = null, recordedChunks = [], recordedBlob = null, recordedUrl = null;
+let recognition = null, isRecognizing = false;
+
+function toggleShadowMode() { if (shadowActive) stopShadowMode(); else startShadowMode(); }
+
+function startShadowMode() {
+  if (!('speechSynthesis' in window)) { alert('浏览器不支持语音朗读'); return; }
+  stopReadAll();
+  window.speechSynthesis.cancel();
+  const story = stories[storyOrder[currentStory]];
+  const plainText = story.text.replace(/\[\[([^|]+)\|([^\]]+)\]\]/g, '$1');
+  shadowSentences = (plainText.match(/[^.!?]+[.!?]+/g) || [plainText]).map(s => s.trim());
+  shadowIndex = 0; shadowActive = true; shadowCancelled = false;
+  const btn = document.getElementById('shadowBtn');
+  btn.classList.add('active'); btn.textContent = '⏹️ 退出跟读';
+  document.getElementById('shadowBar').classList.add('show');
+  speakShadowSentence();
+}
+
+function speakShadowSentence() {
+  if (shadowCancelled || !shadowActive) return;
+  if (shadowIndex < 0) shadowIndex = 0;
+  if (shadowIndex >= shadowSentences.length) {
+    setTimeout(() => { if (shadowActive) stopShadowMode(); }, 600); return;
+  }
+  const sentence = shadowSentences[shadowIndex];
+  document.getElementById('shadowProgress').textContent = `${shadowIndex + 1} / ${shadowSentences.length}`;
+  document.getElementById('shadowSentenceEn').textContent = sentence;
+  // 中文翻译
+  const cnArr = cnTranslations[storyOrder[currentStory]] || [];
+  const cnText = cnArr[shadowIndex] || '（暂无翻译，可自行理解）';
+  document.getElementById('shadowSentenceCn').textContent = cnText;
+  // 重置按钮状态
+  resetNextBtn();
+  document.getElementById('shadowResult').classList.remove('show');
+  document.getElementById('playbackBtn').style.display = 'none';
+  // 播放
+  const u = new SpeechSynthesisUtterance(sentence);
+  u.lang = 'en-GB'; u.rate = speechRate; u.pitch = 1;
+  if (!ukVoice) pickUKVoice();
+  if (ukVoice) u.voice = ukVoice;
+  u.onend = () => {
+    if (shadowCancelled || !shadowActive) return;
+    const nextBtn = document.querySelector('.shadow-actions .btn-next');
+    if (nextBtn) { nextBtn.textContent = '⏭️ 下一句（点此继续）'; nextBtn.style.background = '#ff7043'; nextBtn.style.color = '#fff'; }
+  };
+  window.speechSynthesis.speak(u);
+}
+
+function shadowNext() { if (!shadowActive) return; resetNextBtn(); shadowIndex++; speakShadowSentence(); }
+function shadowPrev() { if (!shadowActive) return; resetNextBtn(); shadowIndex = Math.max(0, shadowIndex - 1); speakShadowSentence(); }
+function shadowReplay() { if (!shadowActive) return; resetNextBtn(); speakShadowSentence(); }
+function resetNextBtn() {
+  const btn = document.querySelector('.shadow-actions .btn-next');
+  if (btn) { btn.textContent = '⏭️ 下一句'; btn.style.background = '#ffd54f'; btn.style.color = '#4a148c'; }
+}
+function toggleShadowCn() {
+  const el = document.getElementById('shadowSentenceCn');
+  el.classList.toggle('show');
+}
+function stopShadowMode() {
+  shadowActive = false; shadowCancelled = true;
+  window.speechSynthesis.cancel();
+  if (mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop();
+  if (recognition && isRecognizing) { try { recognition.stop(); } catch (e) {} }
+  document.getElementById('shadowBar').classList.remove('show');
+  const btn = document.getElementById('shadowBtn');
+  btn.classList.remove('active'); btn.textContent = '🎤 跟读模式';
+  resetNextBtn();
+}
+
+/* --------- 录音跟读对比 --------- */
+function toggleRecord() {
+  const btn = document.getElementById('recordBtn');
+  if (mediaRecorder && mediaRecorder.state === 'recording') {
+    mediaRecorder.stop();
+    btn.classList.remove('recording');
+    btn.textContent = '🎙️ 录音';
+    return;
+  }
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    alert('你的浏览器不支持录音，请用 Chrome 或 Edge。');
+    return;
+  }
+  navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+    recordedChunks = [];
+    mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
+    mediaRecorder.onstop = () => {
+      recordedBlob = new Blob(recordedChunks, { type: 'audio/webm' });
+      if (recordedUrl) URL.revokeObjectURL(recordedUrl);
+      recordedUrl = URL.createObjectURL(recordedBlob);
+      document.getElementById('playbackBtn').style.display = 'inline-block';
+      stream.getTracks().forEach(t => t.stop());
+    };
+    mediaRecorder.start();
+    btn.classList.add('recording');
+    btn.textContent = '⏹️ 停止录音';
+  }).catch(err => {
+    alert('无法访问麦克风：' + err.message + '\n请检查浏览器权限。');
+  });
+}
+function playMyRecording() {
+  if (!recordedUrl) { alert('还没有录音。点「🎙️ 录音」先录一段。'); return; }
+  const audio = new Audio(recordedUrl);
+  audio.play();
+}
+
+/* --------- 语音识别 + 自动打分 --------- */
+function startScoring() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    alert('你的浏览器不支持语音识别，请用 Chrome 或 Edge。');
+    return;
+  }
+  if (isRecognizing) {
+    try { recognition.stop(); } catch (e) {}
+    return;
+  }
+  // 停止朗读
+  window.speechSynthesis.cancel();
+  recognition = new SR();
+  recognition.lang = 'en-GB';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  recognition.continuous = false;
+
+  const target = shadowSentences[shadowIndex] || '';
+  const resultBox = document.getElementById('shadowResult');
+  resultBox.classList.add('show');
+  resultBox.innerHTML = '🎧 <strong>正在听你说...</strong> 请对着麦克风朗读刚才那句话。';
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    const score = computeScore(target, transcript);
+    const feedback = getFeedback(score);
+    resultBox.innerHTML = `
+      <div class="score-big">${score} 分 ${feedback.emoji}</div>
+      <div style="margin-top:6px;">你说的是：<em>"${transcript}"</em></div>
+      <div style="margin-top:4px;color:#f5e6ff;">原文是：<em>"${target}"</em></div>
+      <div style="margin-top:4px;">${feedback.text}</div>
+    `;
+  };
+  recognition.onerror = (event) => {
+    resultBox.innerHTML = `❌ 识别出错：${event.error}。请检查麦克风权限，或换 Chrome / Edge 再试。`;
+    isRecognizing = false;
+  };
+  recognition.onend = () => { isRecognizing = false; };
+  try {
+    recognition.start();
+    isRecognizing = true;
+    document.getElementById('shadowResult').classList.add('show');
+  } catch (e) {
+    resultBox.textContent = '识别启动失败：' + e.message;
+  }
+}
+
+/* 打分算法：词级匹配 + 长度惩罚 */
+function computeScore(target, actual) {
+  const norm = s => s.toLowerCase().replace(/[^a-z0-9\s']/g, ' ').replace(/\s+/g, ' ').trim();
+  const t = norm(target).split(' ').filter(Boolean);
+  const a = norm(actual).split(' ').filter(Boolean);
+  if (t.length === 0) return 0;
+  // 逐词匹配（考虑顺序）
+  const used = new Array(a.length).fill(false);
+  let matched = 0;
+  for (let i = 0; i < t.length; i++) {
+    for (let j = 0; j < a.length; j++) {
+      if (used[j]) continue;
+      // 允许轻微差异（编辑距离 <= 1）
+      if (levenshtein(t[i], a[j]) <= 1) {
+        matched++; used[j] = true; break;
+      }
+    }
+  }
+  const recall = matched / t.length;
+  const precision = a.length > 0 ? matched / a.length : 0;
+  const f1 = (precision + recall) > 0 ? (2 * precision * recall) / (precision + recall) : 0;
+  return Math.round(f1 * 100);
+}
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+    }
+  }
+  return dp[m][n];
+}
+function getFeedback(score) {
+  if (score >= 90) return { emoji: '🎉', text: '非常棒！几乎完美，继续保持！' };
+  if (score >= 75) return { emoji: '👍', text: '不错！个别词可以再清晰一点。' };
+  if (score >= 60) return { emoji: '💪', text: '还行，注意连读和重音，再读一遍试试。' };
+  if (score >= 40) return { emoji: '🤔', text: '有些词漏了或读错了，放慢速度，逐词读清楚。' };
+  return { emoji: '🔁', text: '差距较大，建议先点「🔁 重读」听几遍原音，再跟读。' };
+}
+
+/* =========================================================
+   8. 计时器
+   ========================================================= */
+let timerInterval = null, timerSeconds = 0, timerRunning = true;
+function startTimer() {
+  stopTimer(); timerSeconds = 0; timerRunning = true; updateTimerDisplay();
+  document.getElementById('timerBtn').textContent = '暂停';
+  timerInterval = setInterval(() => { if (timerRunning) { timerSeconds++; updateTimerDisplay(); } }, 1000);
+}
+function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } }
+function toggleTimer() { timerRunning = !timerRunning; document.getElementById('timerBtn').textContent = timerRunning ? '暂停' : '继续'; }
+function resetTimer() { timerSeconds = 0; updateTimerDisplay(); }
+function updateTimerDisplay() {
+  const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+  const s = String(timerSeconds % 60).padStart(2, '0');
+  document.getElementById('timer').textContent = `${m}:${s}`;
+}
+
+/* =========================================================
+   9. 渲染
+   ========================================================= */
+let currentStory = 0;
+let storyOrder = [...Array(stories.length).keys()];
+let listeningMode = false;
+const navEl = document.getElementById('nav');
+const container = document.getElementById('storyContainer');
+
+function buildNav() {
+  navEl.innerHTML = '';
+  storyOrder.forEach((storyIndex, pos) => {
+    const btn = document.createElement('button');
+    btn.textContent = stories[storyIndex].tag.split(' · ')[0];
+    btn.onclick = () => switchStory(pos);
+    navEl.appendChild(btn);
+  });
+}
+function switchStory(pos) {
+  stopReadAll(); stopShadowMode();
+  currentStory = pos;
+  renderStory(storyOrder[pos]);
+  [...navEl.children].forEach((b, i) => b.classList.toggle('active', i === pos));
+  const scoreEl = document.getElementById('score');
+  scoreEl.textContent = listeningMode
+    ? '🎧 听力模式：点击喇叭听发音（英式），然后拼写。'
+    : '输入完成后，点击下方“检查答案”验证。';
+  scoreEl.className = 'score';
+  startTimer();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function renderStory(storyIndex) {
+  const story = stories[storyIndex];
+  let html = story.text.replace(/\[\[([^|]+)\|([^\]]+)\]\]/g, (m, word, cn) => {
+    const w = Math.max(88, word.length * 11 + 24);
+    const safeWord = word.replace(/"/g, '&quot;');
+    if (listeningMode) {
+      return `<span class="input-wrap listening"><button class="speaker-btn play-btn" type="button" data-speak="${safeWord}" title="点击听写">🔊</button><input class="blank" data-answer="${safeWord}" data-cn="${cn}" style="width:${w}px" placeholder="${cn}" autocomplete="off" spellcheck="false"></span>`;
+    } else {
+      return `<span class="input-wrap"><input class="blank" data-answer="${safeWord}" data-cn="${cn}" style="width:${w}px" placeholder="${cn}" autocomplete="off" spellcheck="false"><button class="speaker-btn" type="button" data-speak="${safeWord}" title="朗读">🔊</button></span>`;
+    }
+  });
+  const body = html.split('\n\n').map(p => `<p>${p}</p>`).join('');
+  container.innerHTML = `
+    <div class="story-header">
+      <div class="tag">${story.tag}</div>
+      <h2>${story.title}</h2>
+    </div>
+    <div class="content">${body}</div>
+  `;
+  const inputs = container.querySelectorAll('input.blank');
+  inputs.forEach((input, i) => {
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (inputs[i + 1]) {
+          inputs[i + 1].focus();
+          if (listeningMode) speak(inputs[i + 1].dataset.answer);
+        }
+      }
+    });
+    if (listeningMode) {
+      input.addEventListener('focus', () => {
+        if (!input.dataset.playedOnce) speak(input.dataset.answer);
+      });
+    }
+    input.addEventListener('input', () => { input.classList.remove('wrong', 'correct', 'revealed'); });
+  });
+}
+function toggleListeningMode() {
+  stopReadAll(); stopShadowMode();
+  listeningMode = !listeningMode;
+  document.body.classList.toggle('listening-mode', listeningMode);
+  const modeBtn = document.getElementById('modeBtn');
+  modeBtn.classList.toggle('active', listeningMode);
+  modeBtn.textContent = listeningMode ? '📖 阅读模式' : '🎧 听力模式';
+  renderStory(storyOrder[currentStory]);
+  const scoreEl = document.getElementById('score');
+  scoreEl.textContent = listeningMode
+    ? '🎧 听力模式：点击喇叭听发音（英式），然后拼写。'
+    : '输入完成后，点击下方“检查答案”验证。';
+  scoreEl.className = 'score';
+}
+function shuffleStories() {
+  stopReadAll(); stopShadowMode();
+  for (let i = storyOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [storyOrder[i], storyOrder[j]] = [storyOrder[j], storyOrder[i]];
+  }
+  buildNav();
+  switchStory(0);
+}
+
+/* =========================================================
+   10. 检查 / 提示 / 显示 / 重置
+   ========================================================= */
+function checkAll() {
+  const inputs = document.querySelectorAll('input.blank');
+  let correct = 0, wrong = 0, empty = 0;
+  inputs.forEach(input => {
+    const answer = input.dataset.answer.toLowerCase().trim();
+    const value = input.value.toLowerCase().trim();
+    input.classList.remove('correct', 'wrong', 'revealed');
+    if (!value) { empty++; }
+    else if (value === answer) { correct++; input.classList.add('correct'); removeWrong(input.dataset.answer); }
+    else { wrong++; input.classList.add('wrong'); addWrong(input.dataset.answer); }
+  });
+  const total = inputs.length;
+  const rate = Math.round(correct / total * 100);
+  const scoreEl = document.getElementById('score');
+  scoreEl.textContent = `✅ 正确 ${correct} · ❌ 错误 ${wrong} · ⬜ 未填 ${empty} · 共 ${total} 空 · 正确率 ${rate}%`;
+  scoreEl.className = 'score ' + (rate >= 80 ? 'good' : rate >= 50 ? '' : 'bad');
+}
+function hintAll() {
+  document.querySelectorAll('input.blank').forEach(input => {
+    const answer = input.dataset.answer;
+    const first = answer[0];
+    const rest = '_'.repeat(Math.max(answer.length - 1, 1));
+    input.placeholder = first + rest;
+  });
+}
+function showAll() {
+  stopReadAll(); stopShadowMode();
+  document.querySelectorAll('input.blank').forEach(input => {
+    input.value = input.dataset.answer;
+    input.classList.remove('correct', 'wrong');
+    input.classList.add('revealed');
+  });
+  document.getElementById('score').textContent = '已显示全部答案。点“重置”可重新练习。';
+  document.getElementById('score').className = 'score';
+}
+function resetAll() {
+  stopReadAll(); stopShadowMode();
+  document.querySelectorAll('input.blank').forEach(input => {
+    input.value = '';
+    input.classList.remove('correct', 'wrong', 'revealed', 'speaking-now');
+    input.placeholder = input.dataset.cn;
+    delete input.dataset.playedOnce;
+  });
+  const scoreEl = document.getElementById('score');
+  scoreEl.textContent = listeningMode
+    ? '🎧 听力模式：点击喇叭听发音（英式），然后拼写。'
+    : '输入完成后，点击下方“检查答案”验证。';
+  scoreEl.className = 'score';
+  resetTimer();
+}
+
+/* =========================================================
+   11. 事件
+   ========================================================= */
+document.addEventListener('click', e => {
+  const speakBtn = e.target.closest('[data-speak]');
+  if (speakBtn) { e.preventDefault(); speak(speakBtn.dataset.speak); return; }
+  const removeBtn = e.target.closest('[data-remove]');
+  if (removeBtn) { e.preventDefault(); removeWrong(removeBtn.dataset.remove); return; }
+  if (e.target.id === 'wrongModal') closeWrongBook();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeWrongBook();
+  if (shadowActive && e.code === 'Space' && !e.target.matches('input')) { e.preventDefault(); shadowNext(); }
+});
+
+/* =========================================================
+   12. 启动
+   ========================================================= */
+updateWrongBadge();
+shuffleStories();
+</script>
+</body>
+</html>
